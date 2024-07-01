@@ -1,5 +1,3 @@
-
-``markdown
 # File Encryption and Decryption
 
 This repository contains scripts to encrypt and decrypt files using the `cryptography.fernet` module in Python.
