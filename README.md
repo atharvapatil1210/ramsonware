@@ -50,9 +50,9 @@ To avoid generating a new key each time, follow these steps:
 ## License
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
-```
 
 ### Key Points:
+```
 1. **Explanation of Files**: Describes the purpose of each file in the repository.
 2. **Requirements**: Lists the requirements and how to install them.
 3. **Usage Instructions**: Provides instructions for running the encryption and decryption scripts.
