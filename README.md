@@ -1,60 +1,82 @@
-# File Encryption and Decryption
+## How Malware Hides in Images
 
-This repository contains scripts to encrypt and decrypt files using the `cryptography.fernet` module in Python.
-## Important Note : Use Linux 
-use cmd - `sudo su` (run it as root user)
+Malware can hide in images through a technique called steganography, where data is concealed within another file to avoid detection. Here’s a brief overview of how it works and what you can do about it:
 
-## Files
+### Steganography Techniques
 
-- `voldemart.py`: Script to encrypt files.
-- `decrypt.py`: Script to decrypt files.
-- `thekey.key`: The key file used for encryption and decryption.
+1. **LSB (Least Significant Bit) Insertion**: This is the most common method, where the least significant bit of each byte in the image is replaced with a bit of the secret data. 
+2. **Image Manipulation**: Some techniques involve altering the image in such a way that it embeds the malware without noticeably changing the image.
+3. **Metadata**: Malware can also be hidden in the metadata of an image file.
 
-## Requirements
+### Detecting and Mitigating Image-based Malware
 
-- Python 3.x
-- `cryptography` module
+1. **Regular Scans**: Use antivirus and anti-malware tools to regularly scan files.
+2. **Monitor Network Traffic**: Unusual network activity could indicate the presence of steganographic malware.
+3. **Check Image Integrity**: Use tools to verify the integrity of image files and detect hidden data.
 
-You can install the `cryptography` module using pip:
-```sh
-pip install cryptography
-```
+### Using Steghide on Linux
 
-## Usage
+**Steghide** is a popular tool for embedding and extracting data from image files. Here’s how to use it:
 
-### Encryption
+#### Install Steghide
 
-To encrypt files, run the `voldemart.py` script:
-```sh
-python3 voldemart.py
-```
+If you don't have Steghide installed, you can install it using the following command:
 
-### Decryption
+th-3591439834.jpg
 
-To decrypt files, run the `decrypt.py` script:
-```sh
-python3 decrypt.py
-```
+th-3591439834.jpg
 
-### Important Note
+[H[2J[3J
+Reading package lists...
+Building dependency tree...
+Reading state information...
+steghide is already the newest version (0.5.1-15).
+The following packages were automatically installed and are no longer required:
+  fonts-noto-color-emoji libabsl20220623 libaio1 libatk-adaptor
+  libboost-iostreams1.74.0 libboost-thread1.74.0 libdaxctl1 libgphoto2-l10n
+  libndctl6 libnsl-dev libopenblas-dev libopenblas-pthread-dev libopenblas0
+  libpmem1 libpthread-stubs0-dev libpython3-all-dev libpython3.12
+  libpython3.12-dev libsnapd-glib-2-1 libtirpc-dev libunibreak5
+  libwireplumber-0.4-0 libxsimd-dev linux-image-6.6.9-amd64 openjdk-21-jre
+  openjdk-21-jre-headless python3-all-dev python3-anyjson python3-beniget
+  python3-editables python3-gast python3-lxml-html-clean python3-mistune0
+  python3-pyatspi python3-pypdf2 python3-pyppeteer python3-pyrsistent
+  python3-pythran python3.12-dev samba-ad-provision samba-dsdb-modules xtl-dev
+Use 'sudo apt autoremove' to remove them.
+0 upgraded, 0 newly installed, 0 to remove and 319 not upgraded.
 
-If you run the `voldemart.py` script multiple times, it will generate a new encryption key each time, which will make previously encrypted files undecryptable using the `decrypt.py` script.
+#### Embedding Data in an Image
 
-### Solution
+To embed data into an image, use the  command:
 
-To avoid generating a new key each time, follow these steps:
 
-1. **Check if `thekey.key` already exists before generating a new key**:
-    - Modify `voldemart.py` to check for the existence of `thekey.key` before creating a new key.
 
-## License
+- : Cover file (the image where data will be hidden)
+- : Embed file (the file containing the data to hide)
+- : Stego file (the output image with hidden data)
 
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+#### Extracting Data from an Image
 
-### Key Points:
-```
-1. **Explanation of Files**: Describes the purpose of each file in the repository.
-2. **Requirements**: Lists the requirements and how to install them.
-3. **Usage Instructions**: Provides instructions for running the encryption and decryption scripts.
-4. **Important Note and Solution**: Explains the issue with generating a new key on repeated encryption and provides a solution by modifying `voldemart.py` to reuse the existing key.
-5. **License**: Includes a placeholder for the project's license information.
+To extract the hidden data from an image, use the  command:
+
+
+
+- : Stego file (the image with hidden data)
+
+### Example Commands
+
+#### Embedding Data
+
+
+
+#### Extracting Data
+
+
+
+### Precautions
+
+- **Verify Files**: Always verify the source of images and avoid opening suspicious files.
+- **Network Security**: Implement network security measures to detect and prevent data exfiltration.
+- **Education and Awareness**: Train staff and users about the risks of steganography and safe computing practices.
+
+By using tools like Steghide responsibly, you can protect your systems from steganographic attacks and ensure the integrity of your data.
