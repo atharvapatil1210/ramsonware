@@ -1,6 +1,3 @@
-Here's an updated `README.md` file with additional precautions:
-
-```markdown
 # File Encryption and Decryption
 
 This repository contains scripts to encrypt and decrypt files using the `cryptography.fernet` module in Python.
@@ -78,11 +75,8 @@ To ensure the same key is used for encryption:
 ## License
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
-```
 
 ### Key Points:
 - **Precautions**: Added precautions for key management, avoiding re-encryption issues, and backing up files.
 - **Solution**: Provided steps to modify `voldemart.py` for key reuse and secure handling practices.
 - **License**: Included a placeholder for the project's license information.
-
-This `README.md` file now provides clear guidance on using the encryption and decryption scripts while emphasizing security and best practices. You can use this content by copying and saving it as `README.md` in your GitHub repository.
